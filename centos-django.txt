@@ -247,5 +247,51 @@ http://localhost:8000/pybo/99/ 요청하면
 
 
 
+# CentSO 7에  Git 설치
+
+## 2.x 버전의 Git 설치하기
+
+- Git 리포지토리 설치
+sudo yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm
+
+- Git 설치
+
+sudo yum -y install git
+
+- Git 버전 확인
+
+git --version
+
+=> Git 버전이 2.x 로 확인되면 성공
+
+※ 참고 사이트
+https://computingforgeeks.com/install-git-2-on-centos-7/
+
+# Git clone을 이용하여 pybo 개발 사이트 가져오기
+
+git clone https://github.com/KOOJAYOUN/pybo.git mysite
+
+ls
+=> mysite 디렉토리가 확인되면 clone 성공
+
+# Centos에서 pybo 사이트 띄우기
+
+cd mysite/
+
+python manage.py runserver
+
+=> 에러 발생 - makedown에 대한 문제가 있다 해당 문제를 삭제하자
+
+vim pybo/templatetags/pybo_filter.py
+
+
+python manage.py migrate
+ls
+python manage.py makemigrations
+python manage.py runserver 0:8000
+vim pybo/templatetags/pybo_filter.py
+
+
+
 
 
