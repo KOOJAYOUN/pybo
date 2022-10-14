@@ -11,13 +11,11 @@ sudo yum -y install rh-python36
 3. 가상 환경 세팅
 
 mkdir my_django_appcd my_django_app
-
 scl enable rh-python36 bash
 
 - 가상 환경 source 디렉토리 만들기
 
 mkdir ~/venvs
-
 cd ~/venvs
 
 홈 디렉토리 밑에 만들 것을 권장
@@ -38,9 +36,9 @@ source koo/bin/activate
 
 pip install django
 
-=> pip 업그레이드가 필요하다고 에러가 나옴
+=> 'pip install --upgrade pip'업그레이드가 필요하다고 에러가 나옴
 
-python -m pip install --upgrade pip
+pip install --upgrade pip
 
 pip install django
 
@@ -84,7 +82,7 @@ sudo ./configure
 
 => o acceptable C compiler found in $PATH 에러 메세지
 
-- CentOS에서 컴파일할 때 no acceptable C compiler found in $PATH 에러 메세지 해결을 위한 gcc 설치
+- CentOS에서 컴파일 에러 메세지 해결을 위한 gcc 설치
 
 sudo yum -y install gcc
 
@@ -124,7 +122,7 @@ python
 
 # 센토스 CLI모드에서  GUI모드로 전환
 
-[Run level 참고]
+[CentOS 모드 - Run level]
 Run level 0 : power off
 Run level 1 : recuse 시스템 복구 모드
 Run level 2 (multi-user) : 네트워크를 사용하지 않는 텍스트 유저 모드를 뜻하며, CetnOS 7 부터 사용하지 않고, Run level3과 동일 취급
@@ -147,16 +145,21 @@ sudo yum -y groupinstall "GNOME Desktop" "Graphical Administration Tools"
 
 - 패키지 설치 후 재시작
 
-shutdown -r now
+sudo shutdown -r now
 
 
 # 장고 프로젝트 생성하기
+
+- 파이썬 가상 환경 전환
+
+source ~/venvs/koo/bin/activate
+
 
 - 프로젝트 디렉토리 생성
 
 mkdir -p ~/projects/koo
 
-cd ~/project/koo
+cd ~/projects/koo
 
 - 장고 프로젝트 생성
 
